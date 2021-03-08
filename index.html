@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Index</title>
+    <link rel="icon" href="icon.png">
+</head>
+
+<body onload="check()">
+
+    <div class="container mt-5 mb-5">
+        <div class="form-group">
+            <textarea class="form-control" rows="15" id="codeHTML" placeholder="Enter Your Code here(HTML)"></textarea>
+            <textarea hidden class="form-control" rows="15" id="codeJavaScript" placeholder="Enter Your Code here(JavaScript)"></textarea>
+            <button class="btn-outline-secondary btn mt-2 shadow" onclick="document.getElementById('codeHTML').hidden=false;document.getElementById('codeJavaScript').hidden=true;document.getElementById('codeHTML').focus();">edit HTML</button>
+            <button class="btn-outline-secondary btn mt-2 shadow ml-2" onclick="document.getElementById('codeHTML').hidden=true;document.getElementById('codeJavaScript').hidden=false;document.getElementById('codeJavaScript').focus();">edit JavaScript</button>
+            <br>
+            <input type="submit" class="btn btn-success shadow mt-2" onclick="runJSON({code:document.getElementById('codeHTML').value, code1:document.getElementById('codeJavaScript').value})" value="Run">
+            <br>
+            <br>
+            <h2>
+                <p class="badge badge-primary">Output:</p>
+            </h2>
+            <div id="output" class="p-5 border rounded shadow"></div>
+            <script id="output1"></script>
+        </div>
+    </div>
+    <script>
+        var re = true;
+        var check = () => {
+            var oldData = JSON.parse(localStorage.getItem("oldData"))
+            if (oldData != null) {
+
+                if (oldData.reload == true) {
+                    oldData.reload = false;
+                    document.getElementById("codeHTML").value = oldData.code1;
+                    document.getElementById("codeJavaScript").value = oldData.code2;
+
+                    let json = JSON.stringify(oldData)
+                    localStorage.setItem("oldData", json)
+                    runJSON({
+                        code: document.getElementById('codeHTML').value,
+                        code1: document.getElementById('codeJavaScript').value
+                    });
+                }
+            }
+        }
+        var oldd = () => {
+            if (re == false) {
+                let json = {
+                    code1: document.getElementById("codeHTML").value,
+                    code2: document.getElementById("codeJavaScript").value,
+                    reload: true
+                }
+                json = JSON.stringify(json)
+                localStorage.setItem("oldData", json)
+                window.location.reload()
+            } else {
+                re = false
+            }
+        }
+        var runJSON = (htmlCode) => {
+            oldd()
+            var jsonData = JSON.stringify(htmlCode);
+            localStorage.setItem("testHTML_JSON", jsonData)
+            showOutput();
+        }
+
+        var showOutput = () => {
+            var htmlCode = localStorage.getItem("testHTML_JSON");
+            htmlCode = JSON.parse(htmlCode);
+            if (htmlCode['code'] == "") {
+                htmlCode['code'] = "<h2 class='text-warning rounded'>enter code first!<h2>"
+            }
+            document.getElementById('output').innerHTML = htmlCode.code;
+            document.getElementById('output1').innerHTML = "";
+            document.getElementById('output1').innerHTML = htmlCode.code1;
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
