@@ -1,7 +1,38 @@
 var f = 0;
+var theamCode = true;
 var codeHTML = document.getElementById('codeHTML');
 var codeJavaScript = document.getElementById('codeJavaScript');
 var codeCSS = document.getElementById('codeCSS');
+
+function theam(checked = false) {
+    t = document.getElementById("theam")
+    sun = document.getElementById('sunnn')
+    moon = document.getElementById('mooon')
+    if (checked == true) {
+        t.checked = true;
+    }
+    if (t.checked) {
+        sun.classList.add("d-inline");
+        moon.classList.add("d-none")
+
+        document.body.classList.add("bg-dark");
+        for (let i = 2; i < 5; i++) {
+            document.body.children[0].children[0].children[i].classList.add("bg-dark")
+            document.body.children[0].children[0].children[i].classList.add("text-white")
+        }
+        theamCode = true;
+    } else {
+        sun.classList.remove("d-inline");
+        moon.classList.remove('d-none')
+
+        document.body.classList.remove("bg-dark");
+        for (let i = 2; i < 5; i++) {
+            document.body.children[0].children[0].children[i].classList.remove("bg-dark")
+            document.body.children[0].children[0].children[i].classList.remove("text-white")
+        }
+        theamCode = false;
+    }
+}
 
 function changeIconColor(element) {
     element.children[0].classList.remove("text-warning");
@@ -75,6 +106,7 @@ var oldd = () => {
             code2: codeJavaScript.value,
             code3: document.getElementById("codeCSS").value,
             focus: f,
+            theam: theamCode,
             reload: true
         }
         json = JSON.stringify(json)
@@ -103,6 +135,8 @@ var check = () => {
             } else {
                 openCSS()
             }
+
+            theam(oldData.theam);
 
             let json = JSON.stringify(oldData)
             localStorage.setItem("oldData", json)

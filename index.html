@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <title>Coding-Area</title>
     <link rel="icon" href="icon.png">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
     <style id="output2"></style>
 </head>
 
@@ -17,7 +24,11 @@
 
     <div class="container mt-2 mb-5">
         <div class="form-group">
-            <p class="h2 text-secondary text">Online Code Editor</p>
+            <p class="h2 text-secondary text d-inline-block float-left">Online Code Editor</p>
+            <div class="custom-control custom-switch d-inline-block float-right clearfix mt-1">
+                <input onchange="theam()" type="checkbox" class="custom-control-input" id="theam">
+                <label for="theam"><i id="sunnn" class="fas fa-sun d-none text-warning h3"></i><i id="mooon" class="h3 fas fa-moon text-info"></i></label>
+            </div>
             <textarea class="form-control shadow-sm" rows="15" id="codeHTML" placeholder="Enter Your Code here(HTML)"></textarea>
             <textarea hidden class="form-control shadow-sm" rows="15" id="codeJavaScript" placeholder="Enter Your Code here(JavaScript): (NOTE: Write Your js code directly without using <script></script> tag)"></textarea>
             <textarea hidden class="form-control shadow-sm" rows="15" id="codeCSS" placeholder="Enter Your Code here(CSS): (NOTE: Write Your CSS code directly without using <style></style> tag)"></textarea>
