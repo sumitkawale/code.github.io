@@ -1,5 +1,5 @@
 var f = 0;
-var theamCode = true;
+var theamCode = false;
 var codeHTML = document.getElementById('codeHTML');
 var codeJavaScript = document.getElementById('codeJavaScript');
 var codeCSS = document.getElementById('codeCSS');
