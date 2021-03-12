@@ -3,8 +3,8 @@ var theamCode = false;
 var codeHTML = document.getElementById('codeHTML');
 var codeJavaScript = document.getElementById('codeJavaScript');
 var codeCSS = document.getElementById('codeCSS');
-document.write = (msg) => { document.getElementById('output').innerHTML=msg }
-document.writeln = (msg) => { document.getElementById('output').innerHTML=msg }
+document.write = (msg) => { document.getElementById('output').innerHTML+=msg }
+document.writeln = (msg) => { document.getElementById('output').innerHTML+=msg }
 function theam(checked = false) {
     t = document.getElementById("theam")
     sun = document.getElementById('sunnn')
