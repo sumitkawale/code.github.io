@@ -4,7 +4,8 @@ var codeHTML = document.getElementById('codeHTML');
 var codeJavaScript = document.getElementById('codeJavaScript');
 var codeCSS = document.getElementById('codeCSS');
 var output = document.getElementById('output').contentWindow;
-var consoleOutput = document.getElementById("console");
+// var consoleOutput = document.getElementById("console");
+document.write = document.writeln = (msg) => { output.document.body.innerHTML += msg }
 function theam(checked = false) {
     let t = document.getElementById("theam")
     let sun = document.getElementById('sunnn')
@@ -161,7 +162,7 @@ var check = () => {
     }
     let jsonTheam = JSON.parse(localStorage.getItem("theam"));
     theam(jsonTheam.theam);
-    cccccccc();
+    // cccccccc();
 }
 
 var showOutput = () => {
@@ -175,16 +176,16 @@ var showOutput = () => {
     window.scrollBy(0, 570);
 }
 
-function cccccccc() {
-    if (typeof console != "undefined")
-        if (typeof console.log != 'undefined')
-            console.olog = console.log;
-        else
-            console.olog = function () { };
+// function cccccccc() {
+//     if (typeof console != "undefined")
+//         if (typeof console.log != 'undefined')
+//             console.olog = console.log;
+//         else
+//             console.olog = function () { };
 
-    console.log = function (message) {
-        console.olog(message);
-        consoleOutput.innerHTML = ">" + message + "<br>" + consoleOutput.innerHTML;
-    };
-    console.error = console.debug = console.info = console.log
-}
+//     console.log = function (message) {
+//         console.olog(message);
+//         consoleOutput.innerHTML = ">" + message + "<br>" + consoleOutput.innerHTML;
+//     };
+//     console.error = console.debug = console.info = console.log
+// }

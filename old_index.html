@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Coding-Area</title>
+    <link rel="icon" href="icon.png">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <style id="output2"></style>
+</head>
+
+<body style="margin-bottom: 88vh;" onload="check()">
+
+    <div class="container mt-2 mb-5">
+        <div class="form-group">
+            <p class="h2 text-secondary text d-inline-block float-left">Online Code Editor</p>
+            <div class="custom-control custom-switch d-inline-block float-right clearfix mt-1">
+                <input onchange="theam()" type="checkbox" class="custom-control-input" id="theam">
+                <label for="theam"><i id="sunnn" class="fas fa-sun d-none text-warning h3"></i><i id="mooon" class="h3 fas fa-moon text-info"></i></label>
+            </div>
+            <textarea class="form-control shadow-sm" rows="15" id="codeHTML" placeholder="Enter Your Code here(HTML)"></textarea>
+            <textarea hidden class="form-control shadow-sm" rows="15" id="codeJavaScript" placeholder="Enter Your Code here(JavaScript): (NOTE: Write Your js code directly without using <script></script> tag)"></textarea>
+            <textarea hidden class="form-control shadow-sm" rows="15" id="codeCSS" placeholder="Enter Your Code here(CSS): (NOTE: Write Your CSS code directly without using <style></style> tag)"></textarea>
+            <div class="row offset-md-1 pr-3 pl-3">
+                <button id="b1" class="col-sm-4 col-md-3 btn-outline-danger btn mt-2 shadow active" onmouseover="changeIconColor(this)" onclick="openHTML()">Edit HTML <i class="fab fa-html5 "></i></button>
+                <button id="b2" class="col-sm-4 col-md-3 offset-md-1 btn-outline-warning btn mt-2 shadow" onmouseover="changeIconColor(this)" onmouseout='this.children[0].classList.remove("text-dark");' onclick="openJS()">Edit JavaScript <i class="fab fa-js-square"></i></button>
+                <button id="b3" class="col-sm-4 col-md-3 offset-md-1 btn-outline-primary btn mt-2 shadow " onmouseover="changeIconColor(this)" onclick="openCSS()">Edit CSS <i class="fab fa-css3-alt"></i></button>
+            </div>
+            <br>
+            <button class="btn btn-success shadow mt-2" onclick="runJSON({code:codeHTML.value, code1:codeJavaScript.value, code2:codeCSS.value})">Run <i class="fas fa-cog"></i></button>
+            <br>
+            <br>
+            <h2>
+                <p class="badge badge-primary">Output:</p>
+            </h2>
+            <div id="output" class="p-3 border bg-white"></div>
+            <div id="console" class="p-3 border bg-white"></div>
+            <script id="output1"></script>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
