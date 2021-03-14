@@ -12,7 +12,7 @@
     <link rel="icon" href="icon.png">
 </head>
 
-<body style="margin-bottom: 88vh;" onload="check()">
+<body style="margin-bottom: 88vh;" class="bg-dark" onload="check()">
 
     <div class="container mt-2 mb-5">
         <div class="form-group">
@@ -20,16 +20,18 @@
                 <p class="h2 text-secondary text d-inline-block float-left">Online Code Editor</p>
                 <div class="custom-control custom-switch d-inline-block float-right clearfix mt-1">
                     <input onchange="theam()" type="checkbox" class="custom-control-input" id="theam">
-                    <label for="theam"><i id="sunnn" class="fas fa-sun d-none text-warning h3"></i><i id="mooon"
-                            class="h3 fas fa-moon text-info"></i></label>
+                    <label for="theam">
+                        <i id="sunnn" class="fas fa-sun d-inline text-warning h3"></i>
+                        <i id="mooon" class="fas fa-moon d-none text-info h3"></i>
+                    </label>
                 </div>
             </div>
             <div>
-                <textarea class="form-control shadow-sm" rows="15" id="codeHTML"
+                <textarea class="bg-dark form-control shadow-sm" rows="15" id="codeHTML"
                     placeholder="Enter Your Code here(HTML): (NOTE: you can write only <body> code OR you can write whole document code)"></textarea>
-                <textarea hidden class="form-control shadow-sm" rows="15" id="codeJavaScript"
+                <textarea hidden class="bg-dark form-control shadow-sm" rows="15" id="codeJavaScript"
                     placeholder="Enter Your Code here(JavaScript): (NOTE: Write Your js code directly without using <script></script> tag)"></textarea>
-                <textarea hidden class="form-control shadow-sm" rows="15" id="codeCSS"
+                <textarea hidden class="bg-dark form-control shadow-sm" rows="15" id="codeCSS"
                     placeholder="Enter Your Code here(CSS): (NOTE: Write Your CSS code directly without using <style></style> tag)"></textarea>
             </div>
             <div class="row offset-md-1 pr-3 pl-3">
@@ -53,7 +55,8 @@
                 <h3>
                     <p class="text-secondary">Output:</p>
                 </h3>
-                <iframe name="output" src="output.html" id="output" class="rounded-sm border shadow-sm bg-white w-100" height="500px"></iframe>
+                <iframe name="output" src="output.html" id="output" class="rounded-sm border shadow-sm bg-white w-100"
+                    height="500px"></iframe>
                 <!-- <p class="text-secondary mt-5 h3">Console Output:</p>
                 <div id="console" class="p-3 border border-info shadow rounded bg-dark text-light">></div> -->
             </div>

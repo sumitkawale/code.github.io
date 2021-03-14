@@ -13,9 +13,10 @@ function theam(checked = false) {
     if (checked == true) {
         t.checked = true;
     }
-    if (t.checked) {
+    if (!t.checked) {
+        moon.classList.add("d-none");
         sun.classList.add("d-inline");
-        moon.classList.add("d-none")
+        sun.classList.remove("d-none")
 
         document.body.classList.add("bg-dark");
         codeHTML.classList.add("bg-dark")
@@ -27,8 +28,9 @@ function theam(checked = false) {
         codeCSS.classList.add("text-white")
         theamCode = true;
     } else {
-        sun.classList.remove("d-inline");
-        moon.classList.remove('d-none')
+        moon.classList.remove("d-none");
+        sun.classList.add('d-none')
+        sun.classList.remove('d-inline')
 
         document.body.classList.remove("bg-dark");
         codeHTML.classList.remove("bg-dark")
@@ -161,7 +163,7 @@ var check = () => {
         }
     }
     let jsonTheam = JSON.parse(localStorage.getItem("theam"));
-    theam(jsonTheam.theam);
+    theam(!jsonTheam.theam);
     // cccccccc();
 }
 
