@@ -3,7 +3,8 @@ var theamCode = false;
 var codeHTML = document.getElementById('codeHTML');
 var codeJavaScript = document.getElementById('codeJavaScript');
 var codeCSS = document.getElementById('codeCSS');
-
+var output = document.getElementById('output').contentWindow;
+var consoleOutput = document.getElementById("console");
 function theam(checked = false) {
     let t = document.getElementById("theam")
     let sun = document.getElementById('sunnn')
@@ -36,7 +37,7 @@ function theam(checked = false) {
         codeHTML.classList.remove("text-white")
         codeJavaScript.classList.remove("text-white")
         codeCSS.classList.remove("text-white")
-        
+
         theamCode = false;
     }
     let tt = {
@@ -160,15 +161,30 @@ var check = () => {
     }
     let jsonTheam = JSON.parse(localStorage.getItem("theam"));
     theam(jsonTheam.theam);
+    cccccccc();
 }
 
 var showOutput = () => {
     var htmlCode = localStorage.getItem("testHTML_JSON");
     htmlCode = JSON.parse(htmlCode);
 
-    document.getElementById('output').innerHTML = htmlCode.code;
-    document.getElementById('output1').innerHTML = htmlCode.code1;
-    document.getElementById('output2').innerHTML = htmlCode.code2;
+    output.document.body.innerHTML = htmlCode.code;
+    output.document.getElementById('output1').innerHTML = htmlCode.code1;
+    output.document.getElementById('output2').innerHTML = htmlCode.code2;
     // write code for scroll down....
-    window.scrollBy(0, 555);
+    window.scrollBy(0, 570);
+}
+
+function cccccccc() {
+    if (typeof console != "undefined")
+        if (typeof console.log != 'undefined')
+            console.olog = console.log;
+        else
+            console.olog = function () { };
+
+    console.log = function (message) {
+        console.olog(message);
+        consoleOutput.innerHTML = ">" + message + "<br>" + consoleOutput.innerHTML;
+    };
+    console.error = console.debug = console.info = console.log
 }
