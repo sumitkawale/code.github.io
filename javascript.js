@@ -173,7 +173,7 @@ var showOutput = () => {
     output.document.getElementById('output1').innerHTML = htmlCode.code1;
     output.document.getElementById('output2').innerHTML = htmlCode.code2;
     // write code for scroll down....
-    window.scrollBy(0, 0);
+    window.scrollBy(0, -10000);
     window.scrollBy(0, 570);
 }
 
