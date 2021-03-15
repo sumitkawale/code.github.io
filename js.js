@@ -3,8 +3,9 @@ var theamCode = false;
 var codeHTML = document.getElementById('codeHTML');
 var codeJavaScript = document.getElementById('codeJavaScript');
 var codeCSS = document.getElementById('codeCSS');
-document.write = (msg) => { document.getElementById('output').innerHTML+=msg }
-document.writeln = (msg) => { document.getElementById('output').innerHTML+=msg }
+document.write = (msg) => { document.getElementById('output').innerHTML += msg }
+document.writeln = (msg) => { document.getElementById('output').innerHTML += msg }
+
 function theam(checked = false) {
     let t = document.getElementById("theam")
     let sun = document.getElementById('sunnn')
@@ -37,7 +38,7 @@ function theam(checked = false) {
         codeHTML.classList.remove("text-white")
         codeJavaScript.classList.remove("text-white")
         codeCSS.classList.remove("text-white")
-        
+
         theamCode = false;
     }
     let tt = {
