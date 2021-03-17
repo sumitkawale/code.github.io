@@ -6,6 +6,7 @@ var codeCSS = document.getElementById('codeCSS');
 var output = document.getElementById('output').contentWindow;
 // var consoleOutput = document.getElementById("console");
 document.write = document.writeln = (msg) => { output.document.body.innerHTML += msg }
+
 function theam(checked = false) {
     let t = document.getElementById("theam")
     let sun = document.getElementById('sunnn')
