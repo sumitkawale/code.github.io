@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description"
+        content="Coding - Avengers : You can write code in HTML, CSS and JavaScript and see output" />
+    <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/base16/material-palenight.min.css">
+    <title>Coding - Avengers</title>
+    <style>
+        div {
+            display: block;
+            width: 100%;
+            height: 20rem;
+            margin: 1rem 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            border: 2px solid #2442a3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- --------------------------------------------------------- -->
+    <!--                          code start                       -->
+    <!-- --------------------------------------------------------- -->
+
+    <div contenteditable="true" class="text-code" name="" id="a">
+        <pre>hello</pre>&nbsp;
+    </div>
+    <div contenteditable="true" class="text-code" name="" id="">
+    </div>
+
+    <!-- --------------------------------------------------------- -->
+    <!--                          code end                         -->
+    <!-- --------------------------------------------------------- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    <!-- --------------------------------------------------------- -->
+    <!--                          code start                       -->
+    <!-- --------------------------------------------------------- -->
+
+    <script>
+        // document.querySelectorAll('.text-code').forEach((textCode) => {
+        //     textCode.addEventListener('keyup', function (event) {
+        //         var keywords = ["SELECT", "FROM", "WHERE", "LIKE", "BETWEEN", "NOT LIKE", "FALSE", "NULL", "FROM", "TRUE", "NOT IN"];
+        //         if (event.keyCode == 32) {
+        //             var newHTML = "";
+        //             // Loop through words 
+        //             $(this).text().replace(/[\s]+/g, " ").trim().split(" ").forEach(function (val) {
+        //                 // If word is statement
+        //                 if (keywords.indexOf(val.trim().toUpperCase()) > -1)
+        //                     newHTML += "<span class='statement'>" + val + "&nbsp;</span>";
+        //                 else
+        //                     newHTML += "<span class='other'>" + val + "&nbsp;</span>";
+        //             });
+        //             $(this).html(newHTML);
+
+        //             // Set cursor postion to end of text
+        //             var child = $(this).children();
+        //             var range = document.createRange();
+        //             var sel = window.getSelection();
+        //             range.setStart(child[child.length - 1], 1);
+        //             range.collapse(true);
+        //             sel.removeAllRanges();
+        //             sel.addRange(range);
+        //             this.focus();
+        //         }
+        //     });
+        // });
+        document.querySelectorAll('.text-code').forEach((textCode) => {
+            textCode.addEventListener('keydown', function (event) {
+                if (1) {
+                    event.preventDefault();
+                    console.log(event);
+                    let selection = window.getSelection(); 
+                    var start = selection.anchorOffset;
+                    var end = selection.extentOffset;
+
+                    // set textarea value to: text before caret + tab + text after caret
+                    this.innerHTML = this.innerHTML.toString().substring(0, start) +
+                        "\t" +
+                        this.innerHTML.toString().substring(end);
+
+                    // put caret at right position again
+                    let range = selection.getRangeAt(0);
+                }
+            })
+        });
+    </script>
+
+    <!-- --------------------------------------------------------- -->
+    <!--                          code end                         -->
+    <!-- --------------------------------------------------------- -->
+</body>
+
+</html>
