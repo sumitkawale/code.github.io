@@ -27,6 +27,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
         }
 
+        .CodeMirror {
+            height: 82vh;
+        }
+
         .output {
             padding-top: 1em;
         }
@@ -55,7 +59,7 @@
     <main class="container-fluid my-5 mt-2">
         <div class="editor">
             <div id="html" class="code-container">
-                <textarea class="codemirror-textarea" name="html-code" id="html-code" cols="100" rows="10">
+                <textarea class="codemirror-textarea" name="html-code" id="html-code">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +75,7 @@
                 </textarea>
             </div>
             <div id="css" class="code-container">
-                <textarea class="codemirror-textarea" name="css-code" id="css-code" cols="100" rows="10">
+                <textarea class="codemirror-textarea" name="css-code" id="css-code">
 * {
     margin: 0;
     padding: 0;
@@ -87,7 +91,7 @@ h1{
                 </textarea>
             </div>
             <div id="js" class="code-container">
-                <textarea class="codemirror-textarea" name="js-code" id="js-code" cols="100" rows="10">
+                <textarea class="codemirror-textarea" name="js-code" id="js-code">
 let msg = "hello";
 msg
                 </textarea>
