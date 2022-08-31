@@ -1,63 +1,216 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <title>Coding-Area</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="icon" href="icon.png">
+
+    <link rel="stylesheet" href="./editor/codemirror/lib/codemirror.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .code-container {
+            border: 2px solid #55555555 !important;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        }
+
+        .output {
+            padding-top: 1em;
+        }
+
+        .output h1 {
+            font-weight: 600;
+            color: #555555;
+        }
+
+        #console {
+            background: #333;
+            color: white
+        }
+
+        #output {
+            width: 100%;
+            height: 95vh;
+        }
+    </style>
 </head>
 
-<body style="margin-bottom: 88vh;" class="bg-dark" onload="check()">
+<body>
+    <header>
+    </header>
 
-    <div class="container mt-2 mb-5">
-        <div class="form-group">
-            <div>
-                <p class="h2 text-secondary text d-inline-block float-left">Online Code Editor</p>
-                <div class="custom-control custom-switch d-inline-block float-right clearfix mt-1">
-                    <input onchange="theam()" type="checkbox" class="custom-control-input" id="theam">
-                    <label for="theam">
-                        <i id="sunnn" class="fas fa-sun d-inline text-warning h3"></i>
-                        <i id="mooon" class="fas fa-moon d-none text-info h3"></i>
-                    </label>
-                </div>
+    <main class="container-fluid my-5 mt-2">
+        <div class="editor">
+            <div id="html" class="code-container">
+                <textarea class="codemirror-textarea" name="html-code" id="html-code" cols="100" rows="10">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding-Area</title>
+</head>
+<body>
+    <!-- write your code below -->
+    <h1>Hello World<hr></h1>
+
+
+</body>
+                </textarea>
             </div>
-            <div>
-                <textarea class="bg-dark  text-white form-control shadow-sm" rows="15" id="codeHTML" placeholder="Enter Your Code here(HTML): (NOTE: you can write only <body> code OR you can write whole document code)"></textarea>
-                <textarea hidden class="bg-dark  text-white form-control shadow-sm" rows="15" id="codeJavaScript" placeholder="Enter Your Code here(JavaScript): (NOTE: Write Your js code directly without using <script></script> tag)"></textarea>
-                <textarea hidden class="bg-dark  text-white form-control shadow-sm" rows="15" id="codeCSS" placeholder="Enter Your Code here(CSS): (NOTE: Write Your CSS code directly without using <style></style> tag)"></textarea>
+            <div id="css" class="code-container">
+                <textarea class="codemirror-textarea" name="css-code" id="css-code" cols="100" rows="10">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    border-radius: 5px;
+    padding:10px;
+    color:white;
+    background:red;
+}
+                </textarea>
             </div>
-            <div class="row offset-md-1 pr-3 pl-3">
-                <button id="b1" class="col-sm-4 col-md-3 btn-outline-danger btn mt-2 shadow active" onmouseover="changeIconColor(this)" onclick="openHTML()">Edit HTML <i
-                        class="fab fa-html5 "></i></button>
-                <button id="b2" class="col-sm-4 col-md-3 offset-md-1 btn-outline-warning btn mt-2 shadow" onmouseover="changeIconColor(this)" onmouseout='this.children[0].classList.remove("text-dark");' onclick="openJS()">Edit JavaScript <i class="fab fa-js-square"></i></button>
-                <button id="b3" class="col-sm-4 col-md-3 offset-md-1 btn-outline-primary btn mt-2 shadow " onmouseover="changeIconColor(this)" onclick="openCSS()">Edit CSS <i
-                        class="fab fa-css3-alt"></i></button>
+            <div id="js" class="code-container">
+                <textarea class="codemirror-textarea" name="js-code" id="js-code" cols="100" rows="10">
+let msg = "hello";
+msg
+                </textarea>
             </div>
-            <br>
-            <div>
-                <div class="mb-4">
-                    <button class="btn btn-success shadow mt-2" onclick="runJSON({code:codeHTML.value, code1:codeJavaScript.value, code2:codeCSS.value})">Run <i
-                            class="fas fa-cog"></i></button>
-                </div>
-                <h3>
-                    <p class="text-secondary">Output:</p>
-                </h3>
-                <iframe name="output" src="output.html" id="output" class="rounded-sm border shadow-sm bg-white w-100" height="500px"></iframe>
-                <!-- <p class="text-secondary mt-5 h3">Console Output:</p>
-                <div id="console" class="p-3 border border-info shadow rounded bg-dark text-light">></div> -->
+            <div class="my-2">
+                <button class="btn btn-outline-danger tab" id="html-btn" onclick="openEditor('html')">HTML</button>
+                <button class="btn btn-outline-primary tab" id="css-btn" onclick="openEditor('css')">CSS</button>
+                <button class="btn btn-outline-warning tab" id="js-btn" onclick="openEditor('js')">JavaScript</button>
+                <button class="btn btn-secondary ms-4"
+                    onclick="window.htmlEditor.setValue(''); window.cssEditor.setValue(''); window.jsEditor.setValue('');">clear</button>
             </div>
         </div>
-    </div>
+        <a href="#output"><button class="btn btn-success" onclick="run()">Run</button></a>
+        <hr>
+        <div class="output" id="output">
+            <h1>Console <button class="btn btn-secondary"
+                    onclick="document.getElementById('console').innerHTML=''">clear</button></h1>
+            <div id="console" class="border p-4 rounded shadow-sm mb-5">
+            </div>
+            <h1>Output</h1>
+            <div id="window" class="border p-1 rounded shadow-sm mb-5">
+                <iframe resizable id="output" frameborder="0"></iframe>
+            </div>
+        </div>
+    </main>
 
-    <script src="javascript.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <footer>
+        <div style="height:100vh"></div>
+    </footer>
+    <script src="./editor/codemirror/lib/codemirror.js"></script>
+    <script src="./editor/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    <script src="./editor/codemirror/mode/css/css.js"></script>
+    <script src="./editor/codemirror/mode/javascript/javascript.js"></script>
+    <script>
+        onload = () => {
+            const htmlCode = window.document.getElementById("html-code");
+            window.htmlEditor = CodeMirror.fromTextArea(htmlCode, {
+                mode: "text/html",
+                lineNumbers: true,
+                lint: true,
+                autoComplete: true,
+                autoCloseBrackets: true
+            });
+
+            const cssCodeArea = window.document.getElementById("css-code");
+            window.cssEditor = CodeMirror.fromTextArea(cssCodeArea, {
+                mode: "text/css",
+                lineNumbers: true,
+                foldGutter: true, lint: true,
+                autoCloseBrackets: true
+            });
+
+            const jsCodeArea = window.document.getElementById("js-code");
+            window.jsEditor = CodeMirror.fromTextArea(jsCodeArea, {
+                mode: "text/javascript",
+                lineNumbers: true,
+                lint: true,
+                autoCloseBrackets: true
+            });
+
+            ////// load stored
+
+            if (localStorage.getItem("html") && localStorage.getItem("css") && localStorage.getItem("js")) {
+                window.htmlEditor.setValue(localStorage.getItem("html"));
+                window.cssEditor.setValue(localStorage.getItem("css"));
+                window.jsEditor.setValue(localStorage.getItem("js"));
+            }
+
+            ///////// hide editors and display default/previous
+            window.document.querySelectorAll(".code-container").forEach(element => {
+                element.classList.add("d-none")
+            });
+            if (localStorage.getItem("editor")) {
+                window.document.getElementById(localStorage.getItem("editor")).classList.remove('d-none')
+                document.getElementById(localStorage.getItem("editor") + "-btn").classList.add("active")
+            } else {
+                window.document.getElementById('html').classList.remove('d-none')
+                document.getElementById("html" + "-btn").classList.add("active")
+            }
+        }
+
+        function run() {
+            let childHTML = document.getElementById("window").children[0];
+
+            let html = window.htmlEditor.getValue();
+            let css = window.cssEditor.getValue()
+            let js = window.jsEditor.getValue();
+
+            try {
+                document.getElementById("console").innerHTML += ">&nbsp&nbsp&nbsp&nbsp&nbsp" + childHTML.contentWindow.eval(js) + "<div class='py-2'></div>";
+            } catch (e) {
+                document.getElementById("console").innerHTML += ">&nbsp&nbsp&nbsp&nbsp&nbsp" + e + "<div class='py-2'></div>";
+            }
+            childHTML.contentDocument.children[0].innerHTML = html + "<style>" + css + "</style>";
+
+
+            localStorage.setItem("html", html);
+            localStorage.setItem("css", css);
+            localStorage.setItem("js", js);
+        }
+
+        function openEditor(id) {
+            document.querySelectorAll(".code-container").forEach(element => {
+                element.classList.add("d-none")
+            });
+            document.querySelectorAll(".tab").forEach(element => {
+                element.classList.remove("active")
+            });
+            document.getElementById(id).classList.remove('d-none')
+            document.getElementById(id + "-btn").classList.add("active")
+
+            localStorage.setItem("editor", id);
+        }
+    </script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+        </script>
+
 </body>
 
 </html>
